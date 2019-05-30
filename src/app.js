@@ -1,6 +1,7 @@
 'use strict';
 
 // 3rd Party Resources
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -18,6 +19,8 @@ const categories = new Categories();
 
 // Prepare the express app
 const app = express();
+
+let PORT = process.env.PORT || 3000;
 
 // App Level MW
 app.use(cors());
@@ -138,6 +141,6 @@ function deleteProducts(request, response, next) {
 
 module.exports = {
   server: app,
-  start: (port) =>
-    app.listen(port, () => console.log(`Server up on port ${port}`)),
+  start: (PORT) =>
+    app.listen(PORT, () => console.log(`Server up on port ${PORT}`)),
 };
