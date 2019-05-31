@@ -15,7 +15,10 @@ class Categories {
   }
 
   put(_id, record) {
-    return Category.findByIdAndUpdate({ _id }, record, { new: true });
+    return Category.findByIdAndUpdate({ _id }, record, {
+      new: true,
+      useFindAndModify: false,
+    });
   }
 
   delete(_id) {
