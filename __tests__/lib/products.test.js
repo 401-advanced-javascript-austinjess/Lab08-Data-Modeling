@@ -2,6 +2,7 @@
 
 const connect = require('../../utils/mongoose.connect');
 require('dotenv').config();
+const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI;
 
 const Products = require('../../src/models/products');
@@ -10,6 +11,10 @@ const repository = new Products();
 describe('The Product Repository', () => {
   beforeAll(() => {
     return connect(MONGODB_URI);
+  });
+
+  afterAll(() => {
+    mongoose.connection.close();
   });
 
   it('should post a new product to the db and retreive it', async () => {
