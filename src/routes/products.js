@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const Products = require('./models/products.js');
+const Products = require('../models/products.js');
 const products = new Products();
 
 router.get('/products', getProducts);

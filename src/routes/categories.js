@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const Categories = require('./models/categories.js');
+const Categories = require('../models/categories');
 const categories = new Categories();
 
 router.get('/categories', getCategories);

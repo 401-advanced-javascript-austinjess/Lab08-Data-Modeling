@@ -2,6 +2,15 @@ language: node_js
 node_js:
   - '9'
 
+services:
+  - mongodb
+
+env:
+  - MONGODB=URImongodb://localhost/test
+
 script:
   - npm run lint
   - npm test
+
+notifications:
+  - email: false
