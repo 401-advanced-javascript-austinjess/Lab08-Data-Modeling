@@ -13,9 +13,9 @@ describe('The Product Repository', () => {
     return connect(MONGODB_URI);
   });
 
-  // afterAll(() => {
-  //   mongoose.connection.close();
-  // });
+  afterAll(() => {
+    mongoose.connection.close();
+  });
 
   it('should post a new product to the db and retreive it', async () => {
     const result = await repository.post({
