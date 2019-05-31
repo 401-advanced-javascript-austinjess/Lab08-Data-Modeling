@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "test": "jest --verbose",
+    "test": "jest --verbose --detectOpenHandles",
     "lint": "eslint --ignore-path .gitignore --ignore-pattern internals/scripts || true",
     "test-watch": "jest --watchAll --verbose"
   },
