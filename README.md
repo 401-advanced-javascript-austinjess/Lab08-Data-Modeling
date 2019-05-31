@@ -6,14 +6,14 @@
 
 ### Links and Resources
 
-- [submission PR](https://github.com/401-advanced-javascript-austinjess/Lab08-Data-Modeling/pull/1)
+- [submission PR](https://github.com/401-advanced-javascript-austinjess/Lab08-Data-Modeling/pull/3)
 - [travis](https://travis-ci.com/401-advanced-javascript-austinjess/Lab08-Data-Modeling)
 
 ### Setup
 
 #### `.env` requirements
 
-- `PORT` - Port Number
+- `PORT` - 3000
 - `MONGODB_URI` - URL to the running mongo instance/db
 
 #### Running the app
