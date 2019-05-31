@@ -28,7 +28,6 @@ describe('The Category Repository', () => {
     expect(result._id).toBeDefined();
 
     const fromDb = await repository.get(result._id);
-    console.log(fromDb);
     expect(fromDb).toBeDefined();
     expect(fromDb._id.toString()).toBe(result._id.toString());
     expect(fromDb.name).toBe('Category 1');
@@ -52,4 +51,15 @@ describe('The Category Repository', () => {
   // create a put test
 
   // create a delete test
+  it('should delete a specific category', async () => {
+    const result = await repository.post({
+      name: 'Category 1',
+      displayName: 'CATEGORY 1',
+      description: 'This is the first category in my db',
+    });
+    console.log(result);
+    console.log(result._id);
+    const deleteCat = await repository.delete(result._id);
+    expect(deleteCat).toBeDefined();
+  });
 });

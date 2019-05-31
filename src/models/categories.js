@@ -17,7 +17,7 @@ class Categories {
   put(_id, record) {}
 
   delete(_id) {
-    return Category.drop({ _id: _id });
+    return Category.findOneAndDelete({ _id: _id });
   }
 }
 
