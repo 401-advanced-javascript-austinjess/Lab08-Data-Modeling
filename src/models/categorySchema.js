@@ -11,4 +11,10 @@ const categorySchema = mongoose.Schema({
 const Category =
   mongoose.models.category || mongoose.model('category', categorySchema);
 
+Category.schema.pre('save', (next) => {
+  this.name === this.name.toUpperCase();
+
+  next();
+});
+
 module.exports = Category;
