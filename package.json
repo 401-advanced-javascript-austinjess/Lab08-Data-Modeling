@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/401-advanced-javascript-austinjess/Lab08-Data-Modeling#readme",
   "devDependencies": {
+    "eslint": "^5.16.0",
     "nodemon": "^1.19.1"
   }
 }
