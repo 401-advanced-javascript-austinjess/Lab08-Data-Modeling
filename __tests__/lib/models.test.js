@@ -49,6 +49,25 @@ describe('The Category Repository', () => {
   });
 
   // create a put test
+  it('should update a category and then return that category', async () => {
+    const result = await repository.post({
+      name: 'Category 1',
+      displayName: 'CATEGORY 1',
+      description: 'This is the first category in my db',
+    });
+
+    const newParams = {
+      name: 'UPDATED CATEGORY',
+      displayName: 'I just updated this',
+      description: 'This should be the updated category',
+    };
+
+    const updatedCat = await repository.put(result._id, newParams);
+
+    expect(updatedCat).toBeDefined();
+    expect(updatedCat.name).toBe('UPDATED CATEGORY');
+    expect(updatedCat.displayName).toBe('I just updated this');
+  });
 
   // create a delete test
   it('should delete a specific category', async () => {
@@ -57,8 +76,6 @@ describe('The Category Repository', () => {
       displayName: 'CATEGORY 1',
       description: 'This is the first category in my db',
     });
-    console.log(result);
-    console.log(result._id);
     const deleteCat = await repository.delete(result._id);
     expect(deleteCat).toBeDefined();
   });

@@ -14,7 +14,9 @@ class Categories {
     return newCategory.save();
   }
 
-  put(_id, record) {}
+  put(_id, record) {
+    return Category.findByIdAndUpdate({ _id }, record, { new: true });
+  }
 
   delete(_id) {
     return Category.findOneAndDelete({ _id: _id });
