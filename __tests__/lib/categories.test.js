@@ -2,6 +2,7 @@
 
 const connect = require('../../utils/mongoose.connect');
 require('dotenv').config();
+const mongoose = require('mongoose');
 const MONGODB_URI = process.env.MONGODB_URI;
 
 const Categories = require('../../src/models/categories');
@@ -12,9 +13,9 @@ describe('The Category Repository', () => {
     return connect(MONGODB_URI);
   });
 
-  // afterAll(() => {
-  //   db.categories.drop();
-  // })
+  afterAll(() => {
+    mongoose.connection.close();
+  });
 
   it('should post a new category to the db and retreive it', async () => {
     const result = await repository.post({
